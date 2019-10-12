@@ -84,7 +84,6 @@ body{
 	color: #007bff;
 	text-align: right;
 	font-size: 0.9em;
-	margin: 5px 10px 0px 0px;
 }
 .clear-filters:hover {
 	text-decoration: underline;
@@ -102,8 +101,8 @@ body{
 }
 .filter-container {
 	position: fixed;
+	width: inherit;
 	padding: 5px 1rem;
-	min-height: 80vh;
 }
 @media only screen and (max-width: 767px) {
 	.filter.hide {
@@ -117,6 +116,7 @@ body{
 
 .ui.dropdown {
 	min-width: 10em !important;
+	width: 100%;
 }
 
 /* Utility classes */
