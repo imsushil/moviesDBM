@@ -47,15 +47,6 @@ body{
 	bottom: 10px;
     left:0;
 }
-/* #pagination {
-    background-color: transparent;
-    width:100%; 
-    bottom: 10px;
-    left:0;
-} */
-/* .ui.pagination.menu  {
-    box-shadow: -2px 0px 30px 2px rgba(0,0,0,0.3);
-} */
 
 #filters {
 	padding: 0rem;
@@ -63,11 +54,8 @@ body{
 }
 #filters .mobile, .tablet{
 	text-align: left;
-	/* padding: 5px 14px; */
 }
 .filter {
-	background-color: #f1f1f1;
-	position: relative;
 	padding: 0rem !important;
 }
 .filter-title {
@@ -103,6 +91,8 @@ body{
 	position: fixed;
 	width: inherit;
 	padding: 5px 1rem;
+    background-color: #f1f1f1;
+    height: 100vh;
 }
 @media only screen and (max-width: 767px) {
 	.filter.hide {

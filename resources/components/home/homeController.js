@@ -17,7 +17,6 @@ function HomeController(HomeService, $q, $timeout, $scope) {
     /* Calling API of HomeService to get movie list */
 	HomeService.getMoviesList()
 				.then(function(data){
-                    console.log(data);
                     homeVm.moviesList = data;
                     var i, movieId, len = homeVm.moviesList.length;
                     var langSet = new Set();
@@ -48,8 +47,8 @@ function HomeController(HomeService, $q, $timeout, $scope) {
 				}, function(response){
                     console.log("Location=HomeController, msg=Some error occurred while fetching movie data");
                     console.log(response);
-                }).catch(function(){
-                    console.log("Some exception occurred in success method");
+                }).catch(function(e){
+                    console.error("Some exception occurred in success method", e);
                 });
     
     /* Calling API of HomeService to get movie posters */
@@ -84,7 +83,7 @@ function HomeController(HomeService, $q, $timeout, $scope) {
     
     homeVm.call = function() {
         homeVm.currentPage = 1;
-        update();
+        homeVm.update();
     }
 
     homeVm.initializeDropdowns = function() {
@@ -103,8 +102,7 @@ function HomeController(HomeService, $q, $timeout, $scope) {
             angular.element('#language').dropdown("clear");
             console.log("clearing dropdowns");
         }, 0);
-        // homeVm.ctry = "";
-        // homeVm.lang = "";
+
         // resetting sort by
         homeVm.prop = "";
         homeVm.rev = false;
@@ -124,7 +122,6 @@ function HomeController(HomeService, $q, $timeout, $scope) {
     
     /* Functions for pagination */
     homeVm.next = function() {
-        // console.log()
         if(homeVm.currentPage < homeVm.getTotalPages()){
             homeVm.currentPage += 1;
             homeVm.update();
@@ -169,7 +166,6 @@ function HomeController(HomeService, $q, $timeout, $scope) {
 
     // Filters
     homeVm.sort = function(property, rev) {
-        console.log(property, rev);
         homeVm.prop = property;
         homeVm.rev = rev;
         homeVm.update();
